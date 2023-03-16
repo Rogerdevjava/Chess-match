@@ -10,11 +10,13 @@ public class Pawn extends ChessPiece {
 
 	private ChessMatch chessMatch;
 	
+	
 	public Pawn(Board board, Color color, ChessMatch chessMatch) {
 		super(board, color);
 		this.chessMatch = chessMatch;
 
 	}
+	
 
 	@Override
 	public boolean[][] possibleMoves() {
@@ -47,13 +49,13 @@ public class Pawn extends ChessPiece {
 			// #specialmove en passant white
 			if (position.getRow() == 3) {
 				Position left = new Position(position.getRow(), position.getColumn() - 1);
-				if (getBoard().positionExists(left) && isThereOpponentPiece(left)
-						&& getBoard().piece(left) == chessMatch.getEnPassantVunerable()) {
+				if (getBoard().positionExists(left) && isThereOpponentPiece(left) && getBoard().piece(left) == chessMatch.getEnPassantVunerable()) {
+						
 					mat[left.getRow() - 1][left.getColumn()] = true;
 				}
 				Position right = new Position(position.getRow(), position.getColumn() + 1);
-				if (getBoard().positionExists(right) && isThereOpponentPiece(right)
-						&& getBoard().piece(right) == chessMatch.getEnPassantVunerable()) {
+				if (getBoard().positionExists(right) && isThereOpponentPiece(right) && getBoard().piece(right) == chessMatch.getEnPassantVunerable()) {
+						
 					mat[right.getRow() - 1][right.getColumn()] = true;
 				}
 			}
